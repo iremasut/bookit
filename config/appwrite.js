@@ -10,10 +10,10 @@ const createAdminClient = async () => {
         get account() {
             return new Account(client);
         },
-        get Databases() {
+        get databases() {
             return new Databases(client);
         },
-        get Storage() {
+        get storage() {
             return new Storage(client);
         },
     };        
@@ -32,7 +32,7 @@ const createSessionClient = async (Session) => {const client = new Client()
         get account() {
             return new Account(client);
         },
-        get Databases() {
+        get databases() {
             return new Databases(client);
         },
     };        
