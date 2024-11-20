@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 
 export const metadata = {
-  title: "Bookit App | Book a Room",
+  title: "BookBuddy App | Book a Room",
   description: "Book a room for your family",
 };
 
