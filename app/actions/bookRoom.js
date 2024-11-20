@@ -26,10 +26,10 @@ async function bookRoom(previousState , formData) {
             }
         }
         //Extract date and time from the formData
-        const {checkInDate} = formData.get("check_in_date");
-        const {checkInTime} = formData.get("check_in_time");
-        const {checkOutDate} = formData.get("check_out_date");
-        const {checkOutTime} = formData.get("check_out_time");
+        const checkInDate = formData.get("check_in_date");
+        const checkInTime = formData.get("check_in_time");
+        const checkOutDate = formData.get("check_out_date");
+        const checkOutTime = formData.get("check_out_time");
 
         //Combine date and time to ISO8601 format
         const checkInDateTime = `${checkInDate}T${checkInTime}`;
@@ -41,7 +41,7 @@ async function bookRoom(previousState , formData) {
             user_id : user.id,
             room_id : formData.get("room_id")
         };
-        
+        console.log({bookingData});
         //Create Booking
         const newBooking = await databases.createDocument(
             process.env.NEXT_PUBLIC_APPWRITE_DATABASE,
