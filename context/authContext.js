@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import checkAuth from "@/app/actions/checkAuth";
 
 
-const AuthContext = createContex();
+const AuthContext = createContext();
 
 
 export const AuthProvider = ({ children }) => {
@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
         const checkAuthentication = async ()  => {
             const {isAuthenticated, user } = await checkAuth();
 
-            setIsAuthenticated (isAuthenticated);
+            setIsAuthenticated(isAuthenticated);
             setCurrentUser (user);
         }
 
