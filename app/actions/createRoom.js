@@ -26,11 +26,18 @@ async function createRoom (previousState , formData) {
             //Upload
             try {
                 const response = await storage.createFile("rooms", ID.unique(), image);
-                
+                imageID =  response.$id;
+
             } catch (error) {
+                console.log("Error uploading image", error);
+                return{
+                    error : "Error uploading image"
+                }
                 
             }
-        }
+        } else {
+            console.log("No image file provided or image file is invalid  ")
+            };
 
         // Create rooms
 
@@ -49,6 +56,7 @@ async function createRoom (previousState , formData) {
                 availability : formData.get("availability"),
                 price_per_hour : formData.get("price_per_hour"),
                 amenities : formData.get("amenities"),
+                image : imageID,
 
             }
         );

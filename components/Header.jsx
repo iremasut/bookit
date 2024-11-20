@@ -1,5 +1,4 @@
 "use client";
-import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,25 +6,18 @@ import logo from "@/assets/images/logo.svg";
 import destroySession from "@/app/actions/destroySession";
 import { toast } from "react-toastify";
 import { FaUser, FaSignInAlt, FaSignOutAlt, FaBuilding } from "react-icons/fa";
-import checkAuth from "@/app/actions/checkAuth";
-import React from "react";
+import { useAuth } from "@/context/authContext";
 
 const Header = () => {
   const router = useRouter();
 
-  const [isAuthenticated, setIsAuthenticated] = useState(null);
+  const {isAuthenticated, setIsAuthenticated} = useAuth();
 
-  useEffect(() => {
-    const fetchAuthStatus = async () => {
-      const result = await checkAuth();
-      setIsAuthenticated(result.isAuthenticated)
-    }
-    fetchAuthStatus();
-  }, [])
-
+  
   const handleLogout = async () => {
     const { success, error } = await destroySession();
     if (success) {
+      setIsAuthenticated(false);
       router.push("/login");
     } else {
       toast.error(error);
@@ -56,7 +48,7 @@ const Header = () => {
                   Bookings
                 </Link>
                 <Link
-                  href="/room/add"
+                  href="/rooms/add"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
                 >
                   Add Room

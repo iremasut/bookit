@@ -43,4 +43,4 @@ async function createUser(previousState, formData) {
     }
 }
 
-export default createUser();
+export default createUser;

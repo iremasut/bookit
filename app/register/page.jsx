@@ -7,30 +7,29 @@ import createUser from "@/app/actions/createUser";
 import Link from "next/link";
 
 const RegisterPage = () => {
-  const [state, forAction] = useFormState(createUser, {});
+  const [state, formAction] = useFormState(createUser, {});
 
   const router = useRouter();
 
   useEffect(() => {
     if (state.error) toast.error(state.error);
-    if  (state.success) {
-      toast.success ("You can now log in ");
+    if (state.success) {
+      toast.success("You can now log in ");
       router.push("/login");
     }
-  },[state]);
+  }, [state]);
 
   return (
     <div className="flex items-center justify-center">
       <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-sm mt-20">
-        <form action= { formAction }>
+        <form action={formAction}>
           <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
             Register
           </h2>
 
           <div className="mb-4">
             <label htmlFor="name" className="block text-gray-700 font-bold mb-2"
-            >Name</label
-            >
+            >Name</label>
             <input
               type="text"
               id="name"
@@ -42,8 +41,7 @@ const RegisterPage = () => {
 
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700 font-bold mb-2"
-            >Email</label
-            >
+            >Email</label>
             <input
               type="email"
               id="email"
@@ -55,8 +53,7 @@ const RegisterPage = () => {
 
           <div className="mb-4">
             <label htmlFor="password" className="block text-gray-700 font-bold mb-2"
-            >Password</label
-            >
+            >Password</label>
             <input
               type="password"
               id="password"
@@ -70,8 +67,7 @@ const RegisterPage = () => {
             <label
               htmlFor="confirm-password"
               className="block text-gray-700 font-bold mb-2"
-            >Confirm Password</label
-            >
+            >Confirm Password</label>
             <input
               type="password"
               id="confirm-password"
