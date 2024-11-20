@@ -1,5 +1,5 @@
 import Heading from "@/components/Heading";
-import getMyBookings from "../actions/getmyBookings";
+import getMyBookings from "../actions/getMyBookings";
 import BookedRoomCard from "@/components/BookRoomCard";
 
 const BookingPage = async() => {
