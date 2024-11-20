@@ -4,7 +4,7 @@ import "@/assets/styles/globals.css";
 import AuthWrapper from "@/components/AuthWrapper";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ['latin'] });
 
