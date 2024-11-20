@@ -45,7 +45,7 @@ async function bookRoom(previousState , formData) {
         //Create Booking
         const newBooking = await databases.createDocument(
             process.env.NEXT_PUBLIC_APPWRITE_DATABASE,
-            process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ROOMS,
+            process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_BOOKINGS,
             ID.unique(),
             bookingData
         )
@@ -58,7 +58,7 @@ async function bookRoom(previousState , formData) {
     } catch (error) {
         console.log("Failed to book room ", error);
         return {
-            error : "Somethih went wrong booking a room! "
+            error : "Something went wrong booking a room! "
         }
 
     }
